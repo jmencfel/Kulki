@@ -207,8 +207,6 @@ public class GameController : MonoBehaviour
     IEnumerator WaitForCheck()
     {
         yield return new WaitForSeconds(0.8f);
-      //  while (lastBallAdded.isPerformingStartingCheck || isMoving)
-      //      yield return null;
         if (AllBalls.Count >= 81)
         {
             if (CheckIfHighScore())
@@ -220,31 +218,18 @@ public class GameController : MonoBehaviour
                 else placementText.text += "th";
                 popup.SetHighScore();
             }
-
             popup.Show();
             SaveSystem.EraseGame();
 
             if (!PlayerPrefs.HasKey("NoAds"))
-            {
-               
-               AdsController.instance.ShowAd();                                      
-                   
+            {              
+               AdsController.instance.ShowAd();                                                         
             }
             else
             {
                 Debug.Log("NoAds Key found!");
-            }
-            
-            
-            
+            }          
         }
-       
-       
-           
-        
-       
-
-
     }
     public void AddNewName()
     {

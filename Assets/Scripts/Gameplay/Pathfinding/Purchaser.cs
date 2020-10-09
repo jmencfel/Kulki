@@ -24,9 +24,8 @@ public class Purchaser : MonoBehaviour, IStoreListener
     // kProductIDSubscription - it has custom Apple and Google identifiers. We declare their store-
     // specific mapping to Unity Purchasing's AddProduct, below.
     public static string kProductIDNonConsumable = "noads";
-
     // Apple App Store-specific product identifier for the subscription product.
-   
+
 
     void Start()
     {
