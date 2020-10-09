@@ -27,15 +27,6 @@ public class AdsController : MonoBehaviour
         RequestInterstitial();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       if(shouldRestart)
-        {
-            shouldRestart = false;
-            PlayerPrefs.SetInt("RollingScore", 0); 
-        }
-    }
     private void RequestInterstitial()
     {
 #if UNITY_ANDROID
@@ -68,7 +59,12 @@ public class AdsController : MonoBehaviour
     {
         if (interstitial.IsLoaded())
         {
+            Debug.Log("Showing ad!");
             interstitial.Show();
+        }
+        else
+        {
+            Debug.Log("Ad not loaded!");
         }
     }
     public void HandleOnAdLoaded(object sender, EventArgs args)
@@ -87,13 +83,11 @@ public class AdsController : MonoBehaviour
     public void HandleOnAdOpened(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleAdOpened event received");
-        shouldRestart = true;
     }
 
     public void HandleOnAdClosed(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleAdClosed event received");
-        shouldRestart = true;
         RequestInterstitial();
     }
 

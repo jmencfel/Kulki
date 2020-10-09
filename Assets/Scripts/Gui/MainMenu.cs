@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-#if !UNITY_WEBGL
+
         LoadHighScores();
         if(GameSaveManager.instance.isSaveFilePresent)
         {
@@ -39,10 +39,8 @@ public class MainMenu : MonoBehaviour
             continueButton.SetActive(false);
     }
 
-
-#endif
-    }
-        public void SetNextDifficultyScores()
+    
+    public void SetNextDifficultyScores()
     {
         if (currentDifficultyIndex == 0)
         {
@@ -133,3 +131,4 @@ public class MainMenu : MonoBehaviour
         anim.Play("HideInfo");
     }
 }
+

@@ -101,7 +101,7 @@ public class Kulka : MonoBehaviour
             else
                 break;
         }
-        Debug.Log(MatchingColourBallsLeft + "/" + MatchingColourBallsRight);
+   
         
         if (MatchingColourBallsLeft+MatchingColourBallsRight+1>=5)
         {
@@ -115,7 +115,7 @@ public class Kulka : MonoBehaviour
                 k.Dissolve();
             }
             Dissolve();
-            Debug.Log("VANISHING");
+       
             return true;
         }
         return false;
@@ -149,7 +149,7 @@ public class Kulka : MonoBehaviour
             else
                 break;
         }
-        Debug.Log(MatchingColourBallsUp + "/" + MatchingColourBallsDown);
+
         if (MatchingColourBallsUp + MatchingColourBallsDown + 1 >= 5)
         {
             GameController.instance.IncreaseScore(MatchingColourBallsUp + MatchingColourBallsDown + 1);
@@ -203,7 +203,6 @@ public class Kulka : MonoBehaviour
             else
                 break;
         }
-        Debug.Log(MatchingColourBallsLeft + "/" + MatchingColourBallsRight);
         if (MatchingColourBallsLeft + MatchingColourBallsRight + 1 >= 5)
         {
             GameController.instance.IncreaseScore(MatchingColourBallsLeft + MatchingColourBallsRight + 1);
@@ -215,8 +214,7 @@ public class Kulka : MonoBehaviour
             {
                 k.Dissolve();
             }
-            Dissolve();
-            Debug.Log("VANISHING");
+            Dissolve();     
             return true;
         }
         return false;
@@ -270,7 +268,7 @@ public class Kulka : MonoBehaviour
                 k.Dissolve();
             }
             Dissolve();
-            Debug.Log("VANISHING");
+         
             return true;
         }
         return false;

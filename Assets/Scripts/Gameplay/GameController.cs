@@ -226,22 +226,13 @@ public class GameController : MonoBehaviour
 
             if (!PlayerPrefs.HasKey("NoAds"))
             {
-                if (PlayerPrefs.HasKey("RollingScore"))
-                {
-                    int Rolling = PlayerPrefs.GetInt("RollingScore");
-                    if (Rolling + Score >= 500)
-                    {
-                        AdsController.instance.ShowAd();                                      
-                    }
-                    else
-                    {
-                        PlayerPrefs.SetInt("RollingScore", Rolling + Score);
-                    }
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("RollingScore", 1001);
-                }
+               
+               AdsController.instance.ShowAd();                                      
+                   
+            }
+            else
+            {
+                Debug.Log("NoAds Key found!");
             }
             
             

@@ -13,10 +13,6 @@ public class Pathfinding : MonoBehaviour
         instance = this;
         grid = GetComponent<Grid>();
     }
-    private void Update()
-    {
-
-    }
 
     int GetDistance(Node nodeA, Node nodeB)
     {
@@ -28,8 +24,7 @@ public class Pathfinding : MonoBehaviour
         return 2 * distX + (distY-distX);
     }
     public void RetracePath(Node StartNode, Node EndNode)
-    {
-        Debug.Log("Retracing path");
+    {  
         List<Node> path = new List<Node>();
         Node currentNode = EndNode;
 
@@ -39,8 +34,7 @@ public class Pathfinding : MonoBehaviour
             currentNode = currentNode.parent;
         }
 
-        path.Reverse();
-        Debug.Log("Path has " + path.Count + " steps");
+        path.Reverse();   
          GameController.instance.path = path;
         grid.path = path;
     }
@@ -50,7 +44,7 @@ public class Pathfinding : MonoBehaviour
         Node startNode = grid.NodeFromWorldPoint(startPos);
         Node targetNode = grid.NodeFromWorldPoint(targetPos);
 
-        Debug.Log("Start :" + startNode.gridX + "/" + startNode.gridY + " Finish: " + targetNode.gridX + "/" + targetNode.gridY);
+       // Debug.Log("Start :" + startNode.gridX + "/" + startNode.gridY + " Finish: " + targetNode.gridX + "/" + targetNode.gridY);
 
         List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
@@ -75,7 +69,7 @@ public class Pathfinding : MonoBehaviour
                 RetracePath(startNode, targetNode);
                 return true;
             }
-            Debug.Log("Current node"+ currentNode.gridX +"/"+ currentNode.gridY + " has " + grid.GetNeighbours(currentNode).Count + " neighbours");
+        //    Debug.Log("Current node"+ currentNode.gridX +"/"+ currentNode.gridY + " has " + grid.GetNeighbours(currentNode).Count + " neighbours");
             foreach(Node neighbour in grid.GetNeighbours(currentNode))
             {
                 if (!neighbour.walkable || closedSet.Contains(neighbour))
